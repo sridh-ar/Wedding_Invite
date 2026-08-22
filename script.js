@@ -97,7 +97,8 @@ function initCountdown() {
 function createPetals() {
     const container = document.getElementById('petals');
     if (!container) return;
-    for (let i = 0; i < 22; i++) {
+    const count = window.innerWidth < 768 ? 8 : 22;
+    for (let i = 0; i < count; i++) {
         const p = document.createElement('div');
         p.className = 'petal';
         p.style.left              = Math.random() * 100 + 'vw';
