@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#F7F0E5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Wedding Background</title>
+<style>
+:root {
+    --ivory:       #F7F0E5;
+    --gold:        #C9A84C;
+    --gold-light:  #E2C97E;
+    --gold-pale:   #F0DFA0;
+    --blush:       #E8C4C4;
+    --blush-light: #F5E1DA;
+    --brown:       #8B6914;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { width: 100%; height: 100%; background: var(--ivory); }
+
+.bg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
+    background-color: var(--ivory);
+    background-image:
+        repeating-linear-gradient(92deg, transparent 0px, transparent 3px, rgba(180,150,90,0.03) 3px, rgba(180,150,90,0.03) 4px),
+        repeating-linear-gradient(178deg, transparent 0px, transparent 5px, rgba(160,130,80,0.025) 5px, rgba(160,130,80,0.025) 6px),
+        radial-gradient(ellipse 100% 100% at 50% 50%, var(--ivory) 0%, #EDE0CC 100%);
+}
+
+/* vignette */
+.bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 45%, rgba(100,70,20,0.2) 100%);
+    pointer-events: none;
+    z-index: 50;
+}
+
+/* top glow */
+.glow-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 35%;
+    background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(255,245,200,0.7) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* bottom glow */
+.glow-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    background: radial-gradient(ellipse 100% 100% at 50% 100%, rgba(210,180,130,0.55) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ── BRANCHES ── */
+.branch-left, .branch-right {
+    position: absolute;
+    top: 0;
+    width: 22%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+.branch-left  { left: 0; }
+.branch-right { right: 0; }
+
+/* main stem */
+.branch-left::before {
+    content: '';
+    position: absolute;
+    left: 18%; top: 0;
+    width: 3px; height: 70%;
+    background: linear-gradient(to bottom, var(--gold-pale) 0%, var(--gold) 20%, var(--brown) 50%, var(--gold) 85%, transparent 100%);
+    border-radius: 2px;
+    transform: rotate(4deg);
+}
+.branch-right::before {
+    content: '';
+    position: absolute;
+    right: 18%; top: 0;
+    width: 3px; height: 70%;
+    background: linear-gradient(to bottom, var(--gold-pale) 0%, var(--gold) 20%, var(--brown) 50%, var(--gold) 85%, transparent 100%);
+    border-radius: 2px;
+    transform: rotate(-4deg);
+}
+
+/* secondary stem */
+.branch-left::after {
+    content: '';
+    position: absolute;
+    left: 14%; top: 50%;
+    width: 2px; height: 45%;
+    background: linear-gradient(to bottom, transparent, var(--gold) 20%, var(--brown) 60%, transparent);
+    border-radius: 2px;
+    transform: rotate(8deg);
+}
+.branch-right::after {
+    content: '';
+    position: absolute;
+    right: 14%; top: 50%;
+    width: 2px; height: 45%;
+    background: linear-gradient(to bottom, transparent, var(--gold) 20%, var(--brown) 60%, transparent);
+    border-radius: 2px;
+    transform: rotate(-8deg);
+}
+
+.branch-left .twig {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    border-radius: 2px;
+    transform-origin: left center;
+}
+.branch-right .twig {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(to left, var(--gold), transparent);
+    border-radius: 2px;
+    transform-origin: right center;
+}
+
+.branch-left .twig:nth-child(1)  { left:20%; top:1%;  width:28%; transform:rotate(-35deg); }
+.branch-left .twig:nth-child(2)  { left:20%; top:7%;  width:22%; transform:rotate(-25deg); }
+.branch-left .twig:nth-child(3)  { left:20%; top:14%; width:30%; transform:rotate(-40deg); }
+.branch-left .twig:nth-child(4)  { left:20%; top:22%; width:18%; transform:rotate(-20deg); }
+.branch-left .twig:nth-child(5)  { left:20%; top:30%; width:26%; transform:rotate(-38deg); }
+.branch-left .twig:nth-child(6)  { left:16%; top:42%; width:32%; transform:rotate(-30deg); }
+.branch-left .twig:nth-child(7)  { left:16%; top:53%; width:20%; transform:rotate(-22deg); }
+.branch-left .twig:nth-child(8)  { left:16%; top:63%; width:28%; transform:rotate(-42deg); }
+.branch-left .twig:nth-child(9)  { left:16%; top:73%; width:16%; transform:rotate(-18deg); }
+.branch-left .twig:nth-child(10) { left:16%; top:83%; width:24%; transform:rotate(-35deg); }
+.branch-left .twig:nth-child(11) { left:16%; top:92%; width:20%; transform:rotate(-28deg); }
+
+.branch-right .twig:nth-child(1)  { right:20%; top:1%;  width:28%; transform:rotate(35deg); }
+.branch-right .twig:nth-child(2)  { right:20%; top:7%;  width:22%; transform:rotate(25deg); }
+.branch-right .twig:nth-child(3)  { right:20%; top:14%; width:30%; transform:rotate(40deg); }
+.branch-right .twig:nth-child(4)  { right:20%; top:22%; width:18%; transform:rotate(20deg); }
+.branch-right .twig:nth-child(5)  { right:20%; top:30%; width:26%; transform:rotate(38deg); }
+.branch-right .twig:nth-child(6)  { right:16%; top:42%; width:32%; transform:rotate(30deg); }
+.branch-right .twig:nth-child(7)  { right:16%; top:53%; width:20%; transform:rotate(22deg); }
+.branch-right .twig:nth-child(8)  { right:16%; top:63%; width:28%; transform:rotate(42deg); }
+.branch-right .twig:nth-child(9)  { right:16%; top:73%; width:16%; transform:rotate(18deg); }
+.branch-right .twig:nth-child(10) { right:16%; top:83%; width:24%; transform:rotate(35deg); }
+.branch-right .twig:nth-child(11) { right:16%; top:92%; width:20%; transform:rotate(28deg); }
+
+.branch-left .leaf {
+    position: absolute;
+    width: 14px; height: 8px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    border-radius: 50% 0 50% 0;
+    opacity: 0.75;
+}
+.branch-right .leaf {
+    position: absolute;
+    width: 14px; height: 8px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    border-radius: 0 50% 0 50%;
+    opacity: 0.75;
+}
+
+.branch-left .leaf:nth-child(12) { left:38%; top:0%;  transform:rotate(-50deg); }
+.branch-left .leaf:nth-child(13) { left:32%; top:4%;  transform:rotate(-30deg); width:11px; height:6px; }
+.branch-left .leaf:nth-child(14) { left:36%; top:10%; transform:rotate(-55deg); }
+.branch-left .leaf:nth-child(15) { left:40%; top:18%; transform:rotate(-45deg); width:12px; }
+.branch-left .leaf:nth-child(16) { left:30%; top:25%; transform:rotate(-25deg); width:10px; height:6px; }
+.branch-left .leaf:nth-child(17) { left:38%; top:32%; transform:rotate(-60deg); }
+.branch-left .leaf:nth-child(18) { left:34%; top:42%; transform:rotate(-40deg); width:13px; }
+.branch-left .leaf:nth-child(19) { left:42%; top:53%; transform:rotate(-50deg); width:11px; }
+.branch-left .leaf:nth-child(20) { left:36%; top:63%; transform:rotate(-35deg); }
+.branch-left .leaf:nth-child(21) { left:40%; top:73%; transform:rotate(-55deg); width:12px; }
+.branch-left .leaf:nth-child(22) { left:32%; top:83%; transform:rotate(-28deg); width:10px; height:6px; }
+.branch-left .leaf:nth-child(23) { left:38%; top:92%; transform:rotate(-48deg); }
+
+.branch-right .leaf:nth-child(12) { right:38%; top:0%;  transform:rotate(50deg); }
+.branch-right .leaf:nth-child(13) { right:32%; top:4%;  transform:rotate(30deg); width:11px; height:6px; }
+.branch-right .leaf:nth-child(14) { right:36%; top:10%; transform:rotate(55deg); }
+.branch-right .leaf:nth-child(15) { right:40%; top:18%; transform:rotate(45deg); width:12px; }
+.branch-right .leaf:nth-child(16) { right:30%; top:25%; transform:rotate(25deg); width:10px; height:6px; }
+.branch-right .leaf:nth-child(17) { right:38%; top:32%; transform:rotate(60deg); }
+.branch-right .leaf:nth-child(18) { right:34%; top:42%; transform:rotate(40deg); width:13px; }
+.branch-right .leaf:nth-child(19) { right:42%; top:53%; transform:rotate(50deg); width:11px; }
+.branch-right .leaf:nth-child(20) { right:36%; top:63%; transform:rotate(35deg); }
+.branch-right .leaf:nth-child(21) { right:40%; top:73%; transform:rotate(55deg); width:12px; }
+.branch-right .leaf:nth-child(22) { right:32%; top:83%; transform:rotate(28deg); width:10px; height:6px; }
+.branch-right .leaf:nth-child(23) { right:38%; top:92%; transform:rotate(48deg); }
+
+/* ── FLOWERS ── */
+.flowers { position: absolute; inset: 0; pointer-events: none; z-index: 11; }
+
+.petal {
+    position: absolute;
+    width: 18px; height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 40% 40%, var(--blush-light), var(--blush));
+    opacity: 0.7;
+    transform-origin: center center;
+}
+
+/* top-left flower */
+.petal:nth-child(1)  { top:1%; left:3%; transform:rotate(0deg); }
+.petal:nth-child(2)  { top:1%; left:3%; transform:rotate(45deg); }
+.petal:nth-child(3)  { top:1%; left:3%; transform:rotate(90deg); }
+.petal:nth-child(4)  { top:1%; left:3%; transform:rotate(135deg); }
+.petal:nth-child(5)  { top:1%; left:3%; transform:rotate(180deg); }
+.petal:nth-child(6)  { top:1%; left:3%; transform:rotate(225deg); }
+.petal:nth-child(7)  { top:1%; left:3%; transform:rotate(270deg); }
+.petal:nth-child(8)  { top:1%; left:3%; transform:rotate(315deg); }
+/* top-right flower */
+.petal:nth-child(9)  { top:1%; right:3%; transform:rotate(0deg); }
+.petal:nth-child(10) { top:1%; right:3%; transform:rotate(45deg); }
+.petal:nth-child(11) { top:1%; right:3%; transform:rotate(90deg); }
+.petal:nth-child(12) { top:1%; right:3%; transform:rotate(135deg); }
+.petal:nth-child(13) { top:1%; right:3%; transform:rotate(180deg); }
+.petal:nth-child(14) { top:1%; right:3%; transform:rotate(225deg); }
+.petal:nth-child(15) { top:1%; right:3%; transform:rotate(270deg); }
+.petal:nth-child(16) { top:1%; right:3%; transform:rotate(315deg); }
+/* bottom-left flower */
+.petal:nth-child(17) { bottom:1%; left:3%; transform:rotate(0deg); }
+.petal:nth-child(18) { bottom:1%; left:3%; transform:rotate(45deg); }
+.petal:nth-child(19) { bottom:1%; left:3%; transform:rotate(90deg); }
+.petal:nth-child(20) { bottom:1%; left:3%; transform:rotate(135deg); }
+.petal:nth-child(21) { bottom:1%; left:3%; transform:rotate(180deg); }
+.petal:nth-child(22) { bottom:1%; left:3%; transform:rotate(225deg); }
+.petal:nth-child(23) { bottom:1%; left:3%; transform:rotate(270deg); }
+.petal:nth-child(24) { bottom:1%; left:3%; transform:rotate(315deg); }
+/* bottom-right flower */
+.petal:nth-child(25) { bottom:1%; right:3%; transform:rotate(0deg); }
+.petal:nth-child(26) { bottom:1%; right:3%; transform:rotate(45deg); }
+.petal:nth-child(27) { bottom:1%; right:3%; transform:rotate(90deg); }
+.petal:nth-child(28) { bottom:1%; right:3%; transform:rotate(135deg); }
+.petal:nth-child(29) { bottom:1%; right:3%; transform:rotate(180deg); }
+.petal:nth-child(30) { bottom:1%; right:3%; transform:rotate(225deg); }
+.petal:nth-child(31) { bottom:1%; right:3%; transform:rotate(270deg); }
+.petal:nth-child(32) { bottom:1%; right:3%; transform:rotate(315deg); }
+
+.flower-center {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-pale), var(--gold));
+    opacity: 0.9;
+}
+.flower-center:nth-child(33) { top:calc(1% + 4px);    left:calc(3% + 4px); }
+.flower-center:nth-child(34) { top:calc(1% + 4px);    right:calc(3% + 4px); }
+.flower-center:nth-child(35) { bottom:calc(1% + 4px); left:calc(3% + 4px); }
+.flower-center:nth-child(36) { bottom:calc(1% + 4px); right:calc(3% + 4px); }
+
+/* floating petals */
+.float-petal {
+    position: absolute;
+    width: 10px; height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, var(--blush-light), var(--blush));
+    opacity: 0.45;
+    animation: floatDrift 12s ease-in-out infinite;
+}
+.float-petal:nth-child(37) { top:15%; left:8%;  animation-delay:0s;  animation-duration:14s; }
+.float-petal:nth-child(38) { top:35%; right:6%; animation-delay:-4s; animation-duration:11s; }
+.float-petal:nth-child(39) { top:55%; left:5%;  animation-delay:-7s; animation-duration:16s; }
+.float-petal:nth-child(40) { top:75%; right:9%; animation-delay:-2s; animation-duration:13s; }
+
+@keyframes floatDrift {
+    0%,100% { transform: translateY(0px) rotate(0deg); }
+    33%      { transform: translateY(-12px) rotate(15deg); }
+    66%      { transform: translateY(-6px) rotate(-10deg); }
+}
+
+/* ── PARTICLES ── */
+.particles { position: absolute; inset: 0; pointer-events: none; z-index: 12; }
+
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-pale), var(--gold));
+}
+.dot.shimmer { animation: shimmer 4s ease-in-out infinite; }
+
+@keyframes shimmer {
+    0%,100% { opacity:0.6; transform:scale(1); }
+    50%      { opacity:1;   transform:scale(1.4); }
+}
+
+.dot:nth-child(1)  { width:4px; height:4px; top:2%;   left:3%;   opacity:0.7; animation-delay:0s; }
+.dot:nth-child(2)  { width:3px; height:3px; top:10%;  left:6%;   opacity:0.5; animation-delay:-1s; }
+.dot:nth-child(3)  { width:4px; height:4px; top:20%;  left:2%;   opacity:0.6; animation-delay:-2s; }
+.dot:nth-child(4)  { width:3px; height:3px; top:32%;  left:8%;   opacity:0.4; animation-delay:-0.5s; }
+.dot:nth-child(5)  { width:4px; height:4px; top:45%;  left:3%;   opacity:0.65; animation-delay:-3s; }
+.dot:nth-child(6)  { width:3px; height:3px; top:58%;  left:7%;   opacity:0.5; animation-delay:-1.5s; }
+.dot:nth-child(7)  { width:4px; height:4px; top:70%;  left:2%;   opacity:0.55; animation-delay:-2.5s; }
+.dot:nth-child(8)  { width:3px; height:3px; top:82%;  left:6%;   opacity:0.4; animation-delay:-0.8s; }
+.dot:nth-child(9)  { width:4px; height:4px; top:93%;  left:3%;   opacity:0.6; animation-delay:-3.5s; }
+.dot:nth-child(10) { width:4px; height:4px; top:2%;   right:3%;  opacity:0.7; animation-delay:-1s; }
+.dot:nth-child(11) { width:3px; height:3px; top:10%;  right:6%;  opacity:0.5; animation-delay:-2s; }
+.dot:nth-child(12) { width:4px; height:4px; top:20%;  right:2%;  opacity:0.6; animation-delay:-0.5s; }
+.dot:nth-child(13) { width:3px; height:3px; top:32%;  right:8%;  opacity:0.4; animation-delay:-3s; }
+.dot:nth-child(14) { width:4px; height:4px; top:45%;  right:3%;  opacity:0.65; animation-delay:-1.5s; }
+.dot:nth-child(15) { width:3px; height:3px; top:58%;  right:7%;  opacity:0.5; animation-delay:-2.5s; }
+.dot:nth-child(16) { width:4px; height:4px; top:70%;  right:2%;  opacity:0.55; animation-delay:-0.8s; }
+.dot:nth-child(17) { width:3px; height:3px; top:82%;  right:6%;  opacity:0.4; animation-delay:-3.5s; }
+.dot:nth-child(18) { width:4px; height:4px; top:93%;  right:3%;  opacity:0.6; animation-delay:-1.2s; }
+/* top edge dots */
+.dot:nth-child(19) { width:3px; height:3px; top:1%;   left:20%;  opacity:0.5; animation-delay:-2s; }
+.dot:nth-child(20) { width:4px; height:4px; top:2%;   left:40%;  opacity:0.6; animation-delay:-1s; }
+.dot:nth-child(21) { width:3px; height:3px; top:1%;   right:20%; opacity:0.5; animation-delay:-3s; }
+.dot:nth-child(22) { width:4px; height:4px; top:2%;   right:40%; opacity:0.6; animation-delay:-0.5s; }
+/* bottom edge dots */
+.dot:nth-child(23) { width:3px; height:3px; bottom:1%; left:20%;  opacity:0.5; animation-delay:-1.5s; }
+.dot:nth-child(24) { width:4px; height:4px; bottom:2%; left:40%;  opacity:0.6; animation-delay:-2.5s; }
+.dot:nth-child(25) { width:3px; height:3px; bottom:1%; right:20%; opacity:0.5; animation-delay:-0.8s; }
+.dot:nth-child(26) { width:4px; height:4px; bottom:2%; right:40%; opacity:0.6; animation-delay:-3.2s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .float-petal, .dot { animation: none !important; }
+}
+
+/* ── CONTENT ── */
+.content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    padding: env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px);
+}
+.content-inner {
+    width: 58%;
+    text-align: center;
+    color: #5a3e1b;
+    font-family: Georgia, serif;
+}
+.content-inner h1 {
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+    color: #4a3010;
+}
+.content-inner p {
+    font-size: clamp(0.75rem, 2.5vw, 1rem);
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+<div class="bg">
+    <div class="glow-top"></div>
+    <div class="glow-bottom"></div>
+
+    <div class="branch-left">
+        <span class="twig"></span><span class="twig"></span><span class="twig"></span>
+        <span class="twig"></span><span class="twig"></span><span class="twig"></span>
+        <span class="twig"></span><span class="twig"></span><span class="twig"></span>
+        <span class="twig"></span><span class="twig"></span>
+        <span class="leaf"></span><span class="leaf"></span><span class="leaf"></span>
+        <span class="leaf"></span><span class="leaf"></span><span class="leaf"></span>
+        <span class="leaf"></span><span class="leaf"></span><span class="leaf"></span>
+        <span class="leaf"></span><span class="leaf"></span><span class="leaf"></span>
+    </div>
+
+    <div class="branch-right">
+        <span class="twig"></span><span class="twig"></span><span class="twig"></span>
+        <span class="twig"></span><span class="twig"></span><span class="twig"></span>
+        <span class="twig"></span><span class="twig"></span><span class="twig"></span>
+        <span class="twig"></span><span class="twig"></span>
+        <span class="leaf"></span><span class="leaf"></span><span class="leaf"></span>
+        <span class="leaf"></span><span class="leaf"></span><span class="leaf"></span>
+        <span class="leaf"></span><span class="leaf"></span><span class="leaf"></span>
+        <span class="leaf"></span><span class="leaf"></span><span class="leaf"></span>
+    </div>
+
+    <div class="flowers">
+        <span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span>
+        <span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span>
+        <span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span>
+        <span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span>
+        <span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span>
+        <span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span>
+        <span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span>
+        <span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span>
+        <span class="flower-center"></span><span class="flower-center"></span>
+        <span class="flower-center"></span><span class="flower-center"></span>
+        <span class="float-petal"></span><span class="float-petal"></span>
+        <span class="float-petal"></span><span class="float-petal"></span>
+    </div>
+
+    <div class="particles">
+        <span class="dot shimmer"></span><span class="dot shimmer"></span>
+        <span class="dot shimmer"></span><span class="dot"></span>
+        <span class="dot shimmer"></span><span class="dot"></span>
+        <span class="dot shimmer"></span><span class="dot"></span>
+        <span class="dot shimmer"></span><span class="dot shimmer"></span>
+        <span class="dot shimmer"></span><span class="dot shimmer"></span>
+        <span class="dot"></span><span class="dot shimmer"></span>
+        <span class="dot"></span><span class="dot shimmer"></span>
+        <span class="dot shimmer"></span><span class="dot"></span>
+        <span class="dot shimmer"></span><span class="dot shimmer"></span>
+        <span class="dot shimmer"></span><span class="dot"></span>
+        <span class="dot shimmer"></span><span class="dot"></span>
+        <span class="dot shimmer"></span><span class="dot"></span>
+    </div>
+
+    <div class="content">
+        <div class="content-inner">
+            <p>Together with their families</p>
+            <h1>Sridhar<br>&amp;<br>Gornisha</h1>
+            <p>30 · 08 · 2026</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
