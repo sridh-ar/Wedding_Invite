@@ -29,7 +29,7 @@ function initScrollReveal() {
                 entry.target.classList.remove('revealed');
             }
         });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
     window.addEventListener('scroll', () => { lastScrollY = window.scrollY; }, { passive: true });
     els.forEach(el => observer.observe(el));
