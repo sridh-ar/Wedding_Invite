@@ -139,12 +139,12 @@ html { scroll-behavior: smooth; height: 100%; background: #f9bb78; overflow-x: h
 
 .invitation-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem,2.5vw,1.5rem); font-style: italic; color: var(--text-muted); margin-bottom: 36px; letter-spacing: 0.12em; }
 
-.wedding-date { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 50px; }
+.wedding-date { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 12px; }
 .wedding-date span { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem,4.5vw,3rem); font-weight: 300; color: var(--gold-light); letter-spacing: 0.25em; white-space: nowrap; }
 .date-ornament { width: 70px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 
 .event-hero-detail { margin-bottom: 30px; }
-.event-hero-time { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem,2.5vw,1.3rem); color: var(--rose); letter-spacing: 0.1em; margin-bottom: 6px; }
+.event-hero-time { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem,2.5vw,1.3rem); color: var(--rose); letter-spacing: 0.1em; margin-bottom: 4px; }
 .event-hero-venue { font-family: 'Cormorant Garamond', serif; font-size: clamp(0.9rem,2vw,1.1rem); color: var(--text-muted); font-style: italic; letter-spacing: 0.08em; }
 
 /* ── RING COUNTDOWN ── */
