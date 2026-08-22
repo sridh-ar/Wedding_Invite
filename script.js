@@ -58,7 +58,7 @@ function initNavigation() {
 
 // ── RING COUNTDOWN ──
 function initCountdown() {
-    const weddingDate = new Date('August 30, 2026 07:30:00').getTime();
+    const weddingDate = (typeof WEDDING_DATE !== 'undefined' ? WEDDING_DATE : new Date('August 30, 2026 07:30:00').getTime());
     const circumference = 2 * Math.PI * 45;
 
     function update() {
