@@ -24,6 +24,7 @@ body {
     overflow-y: auto;
     line-height: 1.6;
     min-height: 100%;
+    touch-action: pan-y;
 }
 
 html { scroll-behavior: smooth; height: 100%; background: #f9bb78; overflow-x: hidden; }

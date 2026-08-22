@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initOrbParallax();
 });
 
-// Prevent pinch-to-zoom
-document.addEventListener('touchmove', (e) => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
+// Prevent pinch-to-zoom only, allow normal scroll
+document.addEventListener('touchmove', (e) => {
+    if (e.touches.length > 1) e.preventDefault();
+}, { passive: true });
 window.addEventListener('wheel', (e) => { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
 
 // ── BIDIRECTIONAL SCROLL REVEAL ──
